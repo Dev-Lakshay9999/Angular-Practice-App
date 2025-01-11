@@ -11,10 +11,10 @@ import { CourseComponent } from '../course/course.component';
   imports: [CourseComponent]
 })
 export class HomeComponent {
-  courses: any = [];
+  //courses: any = [];
   
   ngOnInit() {
-    this.getCourses();
+    //this.getCourses();
   }
 
   // name = "Test"
@@ -22,11 +22,11 @@ export class HomeComponent {
   // changeValue() {
   //   this.name = 'Lakshay'
   // }
-  getCourses (){
-      const data = localStorage.getItem(KeyValue.STORAGE_KEYS);
-      //console.log(data);
-      if (data)
-        this.courses = JSON.parse(data);
-  }
+  // getCourses (){
+  //     const data = localStorage.getItem(KeyValue.STORAGE_KEYS);
+  //     //console.log(data);
+  //     if (data)
+  //       this.courses = JSON.parse(data);
+  // }
 
 }

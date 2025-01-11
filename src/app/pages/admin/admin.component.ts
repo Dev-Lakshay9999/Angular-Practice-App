@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CourseComponent } from '../course/course.component';
 import { KeyValue } from '../../enum/key-value';
+import { CourseService } from '../../services/Course/course.service';
+import { Course } from '../../interfaces/course.interface';
 
 @Component({
   selector: 'app-admin',
@@ -14,18 +16,19 @@ export class AdminComponent {
   cover!: string|null;
   cover_file: any;
   showError = false;
-  courses: any[] = [];
+  //courses: any[] = [];
+  private courseService = inject(CourseService);
 
   ngOnInit() {
-    this.getCourses();
+    //this.getCourses();
   }
 
-  getCourses (){
-    const data = localStorage.getItem(KeyValue.STORAGE_KEYS);
-    //console.log(data);
-    if (data)
-      this.courses = JSON.parse(data);
-  }
+  // getCourses (){
+  //   const data = localStorage.getItem(KeyValue.STORAGE_KEYS);
+  //   //console.log(data);
+  //   if (data)
+  //     this.courses = JSON.parse(data);
+  // }
 
   onFileChange(event: any){
     //console.log(event);
@@ -62,19 +65,22 @@ export class AdminComponent {
   }
   saveCourse (form: NgForm){
     const formValue = form.value;
-    //console.log(formValue);
-    const data = {
-      ...formValue, image: this.cover, id: this.courses.length + 1
+    console.log(formValue);
+    const data : Course = {
+      ...formValue,
+       image: this.cover,
+       //id: this.courses.length + 1
     }
-    this.courses = [...this.courses, data];
-    this.setCourseItem(this.courses);
-    console.log(this.courses)    
+    this.courseService.addCourse(data);
+    // this.courses = [...this.courses, data];
+    // this.setCourseItem(this.courses);
+    // console.log(this.courses)    
   }
-  setCourseItem (data: any){
-    localStorage.setItem(KeyValue.STORAGE_KEYS, JSON.stringify(data));
-  }
-  deleteCourse (course: any){
-    this.courses = this.courses.filter(c_item => c_item.id != course.id)
-    this.setCourseItem(this.courses);
-  }
+  // setCourseItem (data: any){
+  //   localStorage.setItem(KeyValue.STORAGE_KEYS, JSON.stringify(data));
+  // }
+  // deleteCourse (course: any){
+  //   this.courses = this.courses.filter(c_item => c_item.id != course.id)
+  //   this.setCourseItem(this.courses);
+  // }
 }
