@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CourseComponent } from '../course/course.component';
-import { KeyValue } from '../enum/key-value';
+import { KeyValue } from '../../enum/key-value';
 
 @Component({
   selector: 'app-admin',

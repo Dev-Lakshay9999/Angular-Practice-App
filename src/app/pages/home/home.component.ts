@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CourseComponent } from "../course/course.component";
-import { KeyValue } from '../enum/key-value';
+import { KeyValue } from '../../enum/key-value';
+import { CourseComponent } from '../course/course.component';
 
 @Component({
   selector: 'app-home',

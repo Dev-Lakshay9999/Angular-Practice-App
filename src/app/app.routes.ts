@@ -8,14 +8,14 @@ export const routes: Routes = [
     //lazy loading
     {
         path: '',
-        loadComponent: () => import('./home/home.component').then((c) => c.HomeComponent)
+        loadComponent: () => import('./pages/home/home.component').then((c) => c.HomeComponent)
     },
     {
         path: 'about',
-        loadComponent: () => import('./about/about.component').then((c) => c.AboutComponent)
+        loadComponent: () => import('./pages/about/about.component').then((c) => c.AboutComponent)
     },
     {
         path: 'admin',
-        loadComponent: () => import('./admin/admin.component').then((c) => c.AdminComponent)
+        loadComponent: () => import('./pages/admin/admin.component').then((c) => c.AdminComponent)
     },
 ];

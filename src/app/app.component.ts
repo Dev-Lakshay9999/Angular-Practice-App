@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./header/header.component";
-import { FooterComponent } from "./footer/footer.component";
+import { HeaderComponent } from "./main-app/header/header.component";
+import { FooterComponent } from "./main-app/footer/footer.component";
 //import { HomeComponent } from "./home/home.component";
 
 @Component({
@@ -11,6 +11,5 @@ import { FooterComponent } from "./footer/footer.component";
   styleUrl: './app.component.scss',
   //imports: [HomeComponent]
 })
-export class AppComponent {
-  
+export class AppComponent {  
 }
