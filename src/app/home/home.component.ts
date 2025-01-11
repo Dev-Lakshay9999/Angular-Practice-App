@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CourseComponent } from "../course/course.component";
+import { KeyValue } from '../enum/key-value';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +11,22 @@ import { CourseComponent } from "../course/course.component";
   imports: [CourseComponent]
 })
 export class HomeComponent {
-  name = "Test"
+  courses: any = [];
+  
+  ngOnInit() {
+    this.getCourses();
+  }
 
-  changeValue() {
-    this.name = 'Lakshay'
+  // name = "Test"
+
+  // changeValue() {
+  //   this.name = 'Lakshay'
+  // }
+  getCourses (){
+      const data = localStorage.getItem(KeyValue.STORAGE_KEYS);
+      //console.log(data);
+      if (data)
+        this.courses = JSON.parse(data);
   }
 
 }

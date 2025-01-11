@@ -47,3 +47,13 @@
         </form>
     </div>
 </div>
+<app-course [courses]="courses" [isAdmin]="true" (delCourse)="deleteCourse($event)"></app-course>
+<!-- <div class="row nt-3">
+    @for (course of courses; track $index) {
+        <div class="col-lg-4 mb-3">
+            <app-course [courseData]="course" [isDelete]="true" (delCourse)="deleteCourse($event)"></app-course>
+        </div> 
+    } @empty {
+        <div align="center">No Course added yet</div>
+    }
+</div> -->
