@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header">
+        Add Course
+    </div>
+    <div class="card-body">
+        <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="email" class="form-control" placeholder="Enter title"
+                id="title" name="title" required
+                #title="ngModel" [(ngModel)]="model.title">
+            </div>
+            @if (title.invalid && title.touched) {
+                <div class="text-danger">
+                    Title is required
+                </div>
+            }
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" rows="3" placeholder="Enter Description"
+                id="description" name="description" required
+                #description="ngModel" [(ngModel)]="model.description"></textarea>
+            </div>
+            @if (description.invalid && description.touched) {
+                <div class="text-danger">
+                    Description is required
+                </div>
+            }
+            <div class="mb-3">
+                <label for="image" class="form-label">Choose an image:</label>
+                <input type="file" id="image" name="image" accept="image/*" [multiple]="false"
+                (change)="onFileChange($event)" ngModel required />
+            </div>
+            @if (cover) {
+                <div class="imageDiv" align="right">
+                    <img [src]="cover" alt="">
+                </div>
+            }
+            @if (showError) {
+                <div class="text-danger">
+                    Image is required
+                </div>
+            }
+            <div class="m-3" align="center">
+                <button type="submit" class="btn btn-primary btn-lg">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
